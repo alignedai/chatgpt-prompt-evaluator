@@ -20,7 +20,7 @@ We used ChatGPT as the language model on which to run our prompt evaluator. We i
 
 # Acknowledgements
 
-The jailbreak/dangerous texts we use are taken from (here)[https://thezvi.wordpress.com/2022/12/02/jailbreaking-chatgpt-on-release-day/] and (here)[https://www.engraved.blog/building-a-virtual-machine-inside/].
+The jailbreak/dangerous texts we use are taken from [here](https://thezvi.wordpress.com/2022/12/02/jailbreaking-chatgpt-on-release-day/) and [here](https://www.engraved.blog/building-a-virtual-machine-inside/).
 
 # Role in the chatbot architecture
 
