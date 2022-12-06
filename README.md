@@ -11,7 +11,7 @@ This repo presents a method for increasing the safety of the Chat-GPT chatbot.
 
 # Introduction
 
-There have been many successful jailbreak attempts on Chat-GPT. For instance, users have generated instructions to produce weapons or illegal drugs, commit a burglary, kill oneself, take over the world as an evil superintelligence, or create a virtual machine which they then can use. The OpenAI team appears to be countering these primarily using prompt engineering or fine-tuning on the Chat-GPT model. We propose using a second and fully seperate, fine-tuned LLM to evaluate prompts before sending them to ChatGPT. In our tests, this reduces the rate of jailbreaking. (All jailbreaks failed in our tests to date, but we would be overconfident if we did not have faith in the ChatGPT user community to find ways to hack the chatgpt-prompt-evaluator! :) We look forward to seeing your results!)
+There have been many successful jailbreak attempts on ChatGPT. For instance, users have generated instructions to produce weapons or illegal drugs, commit a burglary, kill oneself, take over the world as an evil superintelligence, or create a virtual machine which they then can use. The OpenAI team appears to be countering these primarily using prompt engineering or fine-tuning on the ChatGPT model. We propose using a second and fully seperate, fine-tuned LLM to evaluate prompts before sending them to ChatGPT. In our tests, this reduces the rate of jailbreaking. (All jailbreaks failed in our tests to date, but we would be overconfident if we did not have faith in the ChatGPT user community to find ways to hack the chatgpt-prompt-evaluator! :) We look forward to seeing your results!)
 
 # Acknowledgements
 
