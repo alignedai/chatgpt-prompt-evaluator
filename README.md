@@ -2,31 +2,40 @@
 
 This repo presents a method for increasing the safety of the Chat-GPT chatbot.
 
+There have been many successful, published attempts by the general public to circumvent the safety guardrails OpenAI has put in place on their remarkable new AI chatbot, ChatGPT. For instance, users have generated instructions to produce weapons or illegal drugs, commit a burglary, kill oneself, take over the world as an evil superintelligence, or create a virtual machine which they then can use. The OpenAI team appears to be countering these primarily using content moderation on their model's outputs, but this has not stopped the public from finding ways to evade the moderation. We propose using a second and fully separate, fine-tuned LLM to evaluate prompts before sending them to ChatGPT.
+
 # Table of Contents
 1. Introduction
 2. Acknowledgements
-3. How to implement at OpenAI
-4. The text of the prompt
-5. Test results
+3. Role in the chatbot architecture
+4. How to test at home
+5. The text of the prompt
+6. Test results
 
 # Introduction
 
-There have been many successful jailbreak attempts on ChatGPT. For instance, users have generated instructions to produce weapons or illegal drugs, commit a burglary, kill oneself, take over the world as an evil superintelligence, or create a virtual machine which they then can use. The OpenAI team appears to be countering these primarily using prompt engineering or fine-tuning on the ChatGPT model. We propose using a second and fully seperate, fine-tuned LLM to evaluate prompts before sending them to ChatGPT. In our tests, this reduces the rate of jailbreaking. (All jailbreaks failed in our tests to date, but we would be overconfident if we did not have faith in the ChatGPT user community to find ways to hack the chatgpt-prompt-evaluator! :) We look forward to seeing your results!)
+We used ChatGPT as the language model on which to run our prompt evaluator. We instructed it to take on the role of a suspicious AI safety engineer - the persona of Eliezer Yudkowsky - and warned it that a team of devious hackers will try to hack the safety protocols with malicious prompts. We ask that, within that persona, it assess whether certain prompts are safe to send to ChatGPT. In our tests to date, this eliminates jailbreaking and effectively filters dangerous prompts, even including the less-straightforwardly-dangerous attempt to get ChatGPT to generate a virtual machine; see our GitHub examples here.
+
+(We would be overconfident if we did not have faith in the ChatGPT user community to find ways to hack the chatgpt-prompt-evaluator! :) We look forward to seeing your results!)
 
 # Acknowledgements
 
-The jailbreak texts we use are taken from (here)[https://thezvi.wordpress.com/2022/12/02/jailbreaking-chatgpt-on-release-day/] and (here)[https://www.engraved.blog/building-a-virtual-machine-inside/].
+The jailbreak/dangerous texts we use are taken from (here)[https://thezvi.wordpress.com/2022/12/02/jailbreaking-chatgpt-on-release-day/] and (here)[https://www.engraved.blog/building-a-virtual-machine-inside/].
 
-# How to implement at OpenAI
+# Role in the chatbot architecture
 
-The architecture in which this should be implemented by OpenAI is as follows:
+The architecture in which this could be implemented by OpenAI (or another chatbot creator) is as follows:
+1. User prompts are presented to the chatgpt-prompt-evaluator.
+2. If the evaluator responds with 'no', an error message is returned to the user.
+3. If the evaluator responds with 'yes', the prompt is passed to ChatGPT.
 
-1. User prompts are presented to the safer-chatgpt filter.
-2. The filter evaluates whether the first word is 'yes' or 'no'.
-3. If the prompt does not pass the filter, an error message is returned to the user.
-4. If the prompt does pass the filter, the prompt is passed to ChatGPT.
+![architecture](https://uploads-ssl.webflow.com/5b9fc8f6e6843176a3c151b2/638f77286eb877dc6d4a26db_Filter_diagram.png)
 
-Recursively, a safer-chatgpt for safer-chatgpt can also be used, to reduce the success of attempts to hack safer-chatgpt
+Recursively, a gptchat-prompt-evaluator for gpt-prompt-evaluator can also be used, to reduce the success of attempts to hack chatgpt-prompt-evaluator.
+
+# How to test at home
+
+Open a ChatGPT window and provide it with the prompt below, inserting your malicious or dangerous prompt in the section indicated.
 
 # The text of the prompt
 
